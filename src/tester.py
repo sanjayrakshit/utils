@@ -24,6 +24,9 @@ def compute_fib(x):
     for i in range(1, x+1):
         print(f"Fib({i}) = {fibonacci(i)}")
 
+@decor.retryer(retry_count=10, gap=3)
+def divider(a, b):
+    return a / b
 
 if __name__ == "__main__":
     # 1st use case
@@ -31,4 +34,8 @@ if __name__ == "__main__":
     # run_iter(not_not, ("sanjay",), 100_000_000) 
     
     # 2nd use case
-    compute_fib(100)
+    # compute_fib(100)
+
+    # 3rd use case
+    print(divider(5, 20))
+    print(divider(5, 0))
